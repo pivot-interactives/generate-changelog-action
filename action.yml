@@ -1,19 +1,23 @@
 name: 'generate-changelog-action'
-description: 'GitHub Action for lob/generate-changelog'
-author: 'Scott Brenner'
+description: 'GitHub Action for lob/generate-changelog. Modified from ScottBrenner/generate-changelog-action.'
+author: 'Pivot Interactives'
 outputs:
   changelog:
-    description: 'Generate changelog'
+    description: 'Generated changelog'
 inputs:
   package-dir:
     description: 'The path for the package.json if it is not in root'
     required: false
     default: 'package.json'
+  upcoming:
+    description: 'If true, get the release notes for the upcoming release. Defaults to false.'
+    default: false
 runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
     - ${{ inputs.package-dir }}
+    - ${{ inputs.upcoming }}
 branding:
   icon: 'edit'
   color: 'gray-dark'

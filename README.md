@@ -57,5 +57,15 @@ If your `package.json` isn't available in root, you can pass the directory of th
           package-dir: 'root/to/my/package.json'
 ```
 
+If you want to generate a change log for all commits after the last tag, you can request an upcoming changelogs:
+
+```yaml
+      - name: Changelog
+        uses: scottbrenner/generate-changelog-action@master
+        id: Changelog
+        with:
+          upcoming: true
+```
+
 For more information, see [actions/create-release: Usage](https://github.com/actions/create-release#usage) and [lob/generate-changelog: Usage](https://github.com/lob/generate-changelog#usage)
 
